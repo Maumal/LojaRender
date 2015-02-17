@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <h1>Cadastrar Cliente</h1>
+                <h:form id="frmCadastroCliente">
+                    <p:panel id="pnlformulario">
+                        <p:messages autoUpdate="true"/>
+                        Nome*:
+                        <p:inputText value="#{cadastroClienteControle.cliente.nome}" required="true" label="Nome" style="width: 400px" validator="#{cadastroClienteControle.EspacoBranco}">
+                        </p:inputText>
+                        <br></br>
+                         <br></br>
+                        CPF*:                
+                        <p:inputMask value="#{cadastroClienteControle.cliente.cpf}" label="CPF" style="width: 200px"
+                                     required="true" mask="999.999.999-99"/>
+                        <br></br>
+                        <br></br>
+                        Telefone:
+                        <p:inputMask value="#{cadastroClienteControle.cliente.telefone}" label="Telefone" style="width: 200px"
+                                     mask="(99)9999-9999"/>
+                        <br></br>       
+                       <br></br>
+                        Sexo*:
+                        <p:selectOneRadio value="#{cadastroClienteControle.cliente.sexo}" required="true" label="Sexo" style="width: 200px" >
+                            <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                            <f:selectItem itemLabel="Masculino" itemValue="M"/>                            
+                        </p:selectOneRadio>            
+                
+                       <br></br>       
+                       <br></br>
+                       
+                  Data de Nascimento*:
+                  <p:calendar value="#{cadastroClienteControle.cliente.dataNascimento}" required="true" 
+                              label="DataDeNascimento" pattern="dd/MM/yyyy" locale="pt_BR"/>
+                  <br></br>       
+                       <br></br>    
+                       Cidade:
+                       <p:selectOneMenu value="#{cadastroClienteControle.cliente.cidade}" label="Cidade" style="width: 200px">
+                           <f:selectItem itemLabel="Selecione:" itemValue=""/>
+                           <f:selectItem itemLabel="Araquari" itemValue="Araquari"/>
+                           <f:selectItem itemLabel="Barra Velha" itemValue="Barra Velha"/>
+                           <f:selectItem itemLabel="Jaragua do Sul" itemValue="Jaragua do Sul"/>
+                           <f:selectItem itemLabel="Joinville" itemValue="Joinville"/>                      
+                       </p:selectOneMenu>
+                        <br></br>       
+                       <br></br>
+                       
+                       
+                        <p:panel id="pnlRodape">
+                            <p:commandButton value="Salvar" ajax="false" action="#{cadastroClienteControle.salvar()}"/>"
+                            <p:commandButton value="Limpar" type="reset"/>"
+                        </p:panel>                 
+                            
+                    </p:panel>
+                </h:form>                    
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
