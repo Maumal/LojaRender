@@ -6,6 +6,7 @@
 package LojaRender.controle;
 
 import LojaRender.entidade.Cliente;
+import LojaRender.negocio.ClienteBO;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -38,7 +39,19 @@ public class cadastroClienteControle implements Serializable{
     
     public void salvar(){
         FacesContext faceContext = FacesContext.getCurrentInstance();
-        faceContext.addMessage(null, new FacesMessage("Controle"));         
+      //  faceContext.addMessage(null, new FacesMessage("Controle"));  
+        try {
+            ClienteBO clienteBO=new ClienteBO();
+            clienteBO.validar(this.cliente);
+            faceContext.addMessage(null, new FacesMessage("Cliente Cadastrado com Sucesso!"));
+            this.cliente=new Cliente();         
+        } catch (Exception e) {
+            FacesMessage facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getMessage(),e.getMessage());
+            faceContext.addMessage(null, facesMessage);
+        }
+        
+        
+        
     }
     
     

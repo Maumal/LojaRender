@@ -8,7 +8,7 @@ public class GerenciadorEntidade {
     private static EntityManager gerenciarEntidade=null;
     public static EntityManager getGerenciador(){
         if((gerenciarEntidade==null)||(!gerenciarEntidade.isOpen())){
-        gerenciarEntidade=Persistence.createEntityManagerFactory("LojaPu").createEntityManager();            
+        gerenciarEntidade=Persistence.createEntityManagerFactory("lojaPU").createEntityManager();            
         }
         return gerenciarEntidade;
     }    

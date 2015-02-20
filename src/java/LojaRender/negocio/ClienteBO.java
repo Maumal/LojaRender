@@ -29,7 +29,7 @@ public class ClienteBO {
             throw new RuntimeException("Cpf Já Cadastrado!");
             
         }
-        
+        clienteDAO.persistir(cliente);
     }
     
 }
