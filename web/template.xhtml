@@ -22,10 +22,9 @@
                 <ui:insert name="left">
                     <h:form id="frmMenu">                        
                         <p:commandLink value="Cadastrar Cliente" action="#{cadastroClienteControle.iniciarTela()}"/><br/>
-                        <p:commandLink value="Visualizar Cliente"/><br/>
+                        <p:commandLink value="Visualizar Cliente" ajax="false" action="VisualizarClientes"/><br/>
                         <p:commandLink value="Cadastrar Compra"/><br/>
-                        <p:commandLink value="Visualizar Compras"/><br/>
-                        
+                        <p:commandLink value="Visualizar Compras"/><br/>                     
                     </h:form>                  
                 </ui:insert>
             </div>
