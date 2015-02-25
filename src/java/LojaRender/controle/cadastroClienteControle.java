@@ -3,7 +3,9 @@ package LojaRender.controle;
 
 import LojaRender.entidade.Cliente;
 import LojaRender.negocio.ClienteBO;
+import LojaRender.persistencia.ClienteDAO;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -65,5 +67,9 @@ public void EspacoBranco(FacesContext contexto, UIComponent componente, Object v
             
           }
     }
-    
+
+public List getlistaClientes(){
+    ClienteDAO clienteDAO=new ClienteDAO();
+    return clienteDAO.buscarCliente();
+}  
 }
